@@ -11,3 +11,10 @@
 *.lai
 *.la
 *.a
+
+*.dll
+
+.*
+
+Debug/*
+Release/*
