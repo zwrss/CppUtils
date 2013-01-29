@@ -8,26 +8,45 @@
 #include "ArrayList.cpp"
 using namespace std;
 
-void arrayListTest(ArrayList *a){
-	cout << endl << " -- test -- " << endl;
-	for(int i = 0; i < a->size(); i++){
-		cout << endl << i << ". " << a->get(i) << endl;
-	}
-}
+class A{
+public:
+	int x;
+	A(int x):x(x){}
+};
 
 int main() {
-	ArrayList<int> *a = new ArrayList<int>();
-	a->put(1);
-	a->put(2);
-	a->put(5);
-	a->put(8);
-	a->test();
-	a->remove(2);
-	a->test();
-	a->remove(0);
-	a->test();
-	a->remove(0);
-	a->remove(0);
-	a->test();
+	ArrayList<A> a = *new ArrayList<A>();
+	a.put(*new A(1));
+	a.put(*new A(2));
+	a.put(*new A(3));
+	a.put(*new A(4));
+	{
+		cout << endl << " --- test --- ";
+		for(int i = 0; i < a.size(); i++){
+			cout << endl << i << "." << a.get(i).x;
+		}
+	}
+	a.remove(2);
+	{
+		cout << endl << " --- test --- ";
+		for(int i = 0; i < a.size(); i++){
+			cout << endl << i << "." << a.get(i).x;
+		}
+	}
+	a.remove(0);
+	{
+		cout << endl << " --- test --- ";
+		for(int i = 0; i < a.size(); i++){
+			cout << endl << i << "." << a.get(i).x;
+		}
+	}
+	a.remove(0);
+	a.remove(0);
+	{
+		cout << endl << " --- test --- ";
+		for(int i = 0; i < a.size(); i++){
+			cout << endl << i << "." << a.get(i).x;
+		}
+	}
 	return 0;
 }

@@ -22,9 +22,6 @@ public:
 		newList[listSize] = el;
 		list = newList;
 		listSize = listSize + 1;
-		for(int i = 0; i < listSize; i++){
-			cout << endl << list[i];
-		}
 	}
 
 	T get(int i){
@@ -59,4 +56,11 @@ public:
 	int size(){
 		return listSize;
 	}
+
+//	void test(){
+//		cout << endl << " --- test --- ";
+//		for(int i = 0; i < listSize; i++){
+//			cout << endl << i << "." << list[i];
+//		}
+//	}
 };
