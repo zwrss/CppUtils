@@ -1,17 +1,14 @@
-//============================================================================
-// Name        : ArrayList.cpp
-// Author      : Pawel Mlynarczyk <pawel@zwrss.pl>
-// Description : Simple ArrayList for C++ - this is not the best implementation!
-//============================================================================
-
 #include <iostream>
 #include <cstdlib>
+#include "List.cpp"
 using namespace std;
 
-template<class T> class ArrayList {
+template<class T> class ArrayList : public List<T> {
+
 private:
 	T* list;
 	int listSize;
+
 public:
 
 	ArrayList():listSize(0), list(NULL){}
