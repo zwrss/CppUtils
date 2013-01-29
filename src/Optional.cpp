@@ -1,33 +1,26 @@
+#include <iostream>
+using namespace std;
 
 template<class T> class Optional{
-public:
-	virtual T get(T e) = 0;
-	virtual bool isSet() = 0;
-};
-
-template<class T> class Yes : public Optional<T>{
-public:
+private:
 	T x;
-	Yes(T x):x(x){}
-
-	T get(T e){
-		return x;
-	}
-
-	bool isSet(){
-		return true;
-	}
-};
-
-template<class T> class No : public Optional<T>{
+	bool isset;
 public:
-	No(){}
+	Optional(){
+		isset = false;
+	}
+	Optional(T x):x(x){
+		isset = true;
+	}
 
 	T get(T e){
-		return e;
+		if(isset)
+			return x;
+		else
+			return e;
 	}
 
 	bool isSet(){
-		return false;
+		return isset;
 	}
 };

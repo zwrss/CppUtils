@@ -26,45 +26,18 @@ public:
 };
 
 int main() {
-	Optional<int> *a = new Yes<int>(5);
-	Optional<int> *b = new No<int>();
-	cout << a->get(1) << ", " << b->get(1);
-//	List<Test1<int> > *a = new ArrayList<Test1<int> >();
-//	a->put(*new Test2<int>(1));
-//	a->put(*new Test1<int>(2));
-//	a->put(*new Test2<int>(3));
-//	a->put(*new Test1<int>(4));
-//	cout << a->get(0).get();
-//	Test1<int> t;
-//	t = Test1<int>(1);
-//	cout << t.get();
-//	{
-//		cout << endl << " --- test --- ";
-//		for(int i = 0; i < a.size(); i++){
-//			cout << endl << i << "." << a.get(i).x;
-//		}
-//	}
-//	a.remove(2);
-//	{
-//		cout << endl << " --- test --- ";
-//		for(int i = 0; i < a.size(); i++){
-//			cout << endl << i << "." << a.get(i).x;
-//		}
-//	}
-//	a.remove(0);
-//	{
-//		cout << endl << " --- test --- ";
-//		for(int i = 0; i < a.size(); i++){
-//			cout << endl << i << "." << a.get(i).x;
-//		}
-//	}
-//	a.remove(0);
-//	a.remove(0);
-//	{
-//		cout << endl << " --- test --- ";
-//		for(int i = 0; i < a.size(); i++){
-//			cout << endl << i << "." << a.get(i).x;
-//		}
-//	}
+
+//	List<Optional<int> > *list = new ArrayList<Optional<int> >();
+//	list->put(*new Optional<int>(1));
+//	list->put(*new No<int>());
+//	list->put(*new Optional<int>(3));
+//	list->put(*new No<int>());
+//	list->put(*new Optional<int>(5));
+//	for(int i = 0; i < 5; i++)
+//		cout << endl << list->get(i).get(6);
+
+	Optional<int> a = *new Optional<int>();
+	cout << a.get(5);
+
 	return 0;
 }
