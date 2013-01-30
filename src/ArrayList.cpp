@@ -54,6 +54,14 @@ public:
 		return listSize;
 	}
 
+	ArrayList<T> copy() {
+		ArrayList<T> al = *new ArrayList<T>();
+		for(int i = 0; i < listSize; i++){
+			al.put(list[i]);
+		}
+		return al;
+	}
+
 //	void test(){
 //		cout << endl << " --- test --- ";
 //		for(int i = 0; i < listSize; i++){
