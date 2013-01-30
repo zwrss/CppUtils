@@ -33,6 +33,7 @@ int main() {
 	list->put(*new Optional<int>(3));
 	list->put(*new Optional<int>());
 	list->put(*new Optional<int>(5));
+	list->set(4, 9);
 	for(int i = 0; i < 5; i++)
 		cout << endl << list->get(i).get(6);
 

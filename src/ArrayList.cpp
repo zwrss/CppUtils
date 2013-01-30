@@ -50,6 +50,12 @@ public:
 		}
 	}
 
+	void set(int i, T el){
+		if(i >= 0 && i < listSize && listSize >= 1){
+			list[i] = el;
+		}
+	}
+
 	int size(){
 		return listSize;
 	}
