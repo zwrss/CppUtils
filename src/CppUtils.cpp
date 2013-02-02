@@ -28,8 +28,9 @@ public:
 
 int main() {
 
-	List<Optional<int> > *list = new ArrayList<Optional<int> >();
-//	List<Optional<int> > *list = new LinkedList<Optional<int> >();
+	cout << endl << "--- Create and input test:" << endl;
+//	List<Optional<int> > *list = new ArrayList<Optional<int> >();
+	List<Optional<int> > *list = new LinkedList<Optional<int> >();
 	list->put(*new Optional<int>(1));
 	list->put(*new Optional<int>());
 	list->put(*new Optional<int>(3));
@@ -45,9 +46,14 @@ int main() {
 			cout << "not set (" << opt.get(-1) << ")";
 		}
 	}
-	cout << endl << "-------------------" << endl;
+	cout << endl << "--- Exception test:" << endl;
+	try{
+		list->get(7);
+	} catch (IndexOutOfBoundsException& e) {
+		cout << endl << "Got an exception: " << e.message();
+	}
+	cout << endl << "--- Remove one test:" << endl;
 	list->remove(2);
-	list->remove(6);
 	for(int i = 0; i < list->size(); i++){
 		Optional<int> opt = list->get(i);
 		cout << endl << "Value at " << i << " is ";
@@ -57,6 +63,45 @@ int main() {
 			cout << "not set (" << opt.get(-1) << ")";
 		}
 	}
-
+	cout << endl << "--- Remove all test:" << endl;
+	while(list->size() > 0){
+		list->remove(0);
+		cout << endl << "deleting";
+	}
+	for(int i = 0; i < list->size(); i++){
+		Optional<int> opt = list->get(i);
+		cout << endl << "Value at " << i << " is ";
+		if(opt.isSet()){
+			cout << opt.get(-1);
+		} else {
+			cout << "not set (" << opt.get(-1) << ")";
+		}
+	}
+	cout << endl << "--- Reinput test:" << endl;
+	list->put(*new Optional<int>(1));
+	list->put(*new Optional<int>());
+	list->put(*new Optional<int>(3));
+	list->put(*new Optional<int>());
+	list->put(*new Optional<int>(5));
+	for(int i = 0; i < list->size(); i++){
+		Optional<int> opt = list->get(i);
+		cout << endl << "Value at " << i << " is ";
+		if(opt.isSet()){
+			cout << opt.get(-1);
+		} else {
+			cout << "not set (" << opt.get(-1) << ")";
+		}
+	}
+	cout << endl << "--- Copy test:" << endl;
+	List<Optional<int> >* list2 = list->copy();
+	for(int i = 0; i < list2->size(); i++){
+		Optional<int> opt = list2->get(i);
+		cout << endl << "Value at " << i << " is ";
+		if(opt.isSet()){
+			cout << opt.get(-1);
+		} else {
+			cout << "not set (" << opt.get(-1) << ")";
+		}
+	}
 	return 0;
 }

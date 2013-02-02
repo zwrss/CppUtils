@@ -21,9 +21,8 @@ private:
 	int listSize;
 
 	Node* getNode(int i){
-		if(listSize == 0 || i < 0 || i >= listSize){
-			return NULL;
-		}
+		if(i < 0 || i >= listSize)
+			throw IndexOutOfBoundsException("Index is out of bounds.");
 		Node* n = first;
 		while(i > 0){
 			if(n == NULL){
@@ -55,17 +54,12 @@ public:
 
 	T get(int i){
 		Node* n = getNode(i);
-		if(n == NULL)
-			return NULL;
-		else
-			return n->value;
+		return n->value;
 	}
 
 	void remove(int i){
 		Node* n = getNode(i);
-		if(n == NULL){
-			return;
-		} else if(n == first && n == last){
+		if(n == first && n == last){
 			first = NULL;
 			last = NULL;
 		} else if(n == first) {
@@ -82,19 +76,21 @@ public:
 
 	void set(int i, T el){
 		Node* n = getNode(i);
-		if(n == NULL){
-			return;
-		} else {
-			n->value = el;
-		}
+		n->value = el;
 	}
 
 	int size(){
 		return listSize;
 	}
 
-	LinkedList<T> copy() {
-		return *new LinkedList<T>();
+	List<T>* copy() {
+		LinkedList<T>* copy = new LinkedList<T>();
+		Node* n = first;
+		while(n != NULL){
+			copy->put(n->value);
+			n = n->nextNode;
+		}
+		return copy;
 	}
 
 };
