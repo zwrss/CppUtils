@@ -45,6 +45,15 @@ public:
 		list[i] = el;
 	}
 
+	bool contains(T el){
+		for(int i = 0; i < size(); i++){
+			if(list[i] == el){
+				return true;
+			}
+		}
+		return false;
+	}
+
 	int size(){
 		return listSize;
 	}

@@ -79,6 +79,16 @@ public:
 		n->value = el;
 	}
 
+	bool contains(T el){
+		Node* n = first;
+		while(n != NULL){
+			if(n->value == el)
+				return true;
+			n = n->nextNode;
+		}
+		return false;
+	}
+
 	int size(){
 		return listSize;
 	}

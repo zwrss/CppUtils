@@ -5,11 +5,12 @@
 
 template<class T> class List {
 public:
+	virtual int size() = 0;
 	virtual void put(T el) = 0;
 	virtual T get(int i) = 0;
 	virtual void remove(int i) = 0;
 	virtual void set(int i, T el) = 0;
-	virtual int size() = 0;
+	virtual bool contains(T el) = 0;
 	virtual List<T>* copy() = 0;
 	virtual ~List(){ delete this; };
 };
