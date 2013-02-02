@@ -15,6 +15,7 @@
 *.dll
 
 .*
+*.stackdump
 
 Debug/*
 Release/*
