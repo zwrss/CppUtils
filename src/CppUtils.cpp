@@ -28,8 +28,8 @@ public:
 
 int main() {
 
-//	List<Optional<int> > *list = new ArrayList<Optional<int> >();
-	List<Optional<int> > *list = new LinkedList<Optional<int> >();
+	List<Optional<int> > *list = new ArrayList<Optional<int> >();
+//	List<Optional<int> > *list = new LinkedList<Optional<int> >();
 	list->put(*new Optional<int>(1));
 	list->put(*new Optional<int>());
 	list->put(*new Optional<int>(3));

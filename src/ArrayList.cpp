@@ -17,10 +17,8 @@ public:
 	ArrayList():listSize(0), list(NULL){}
 
 	void put(T el){
-		T* newList;
-		newList = (T*) realloc(list, (listSize + 1) * (sizeof newList[0]));
-		newList[listSize] = el;
-		list = newList;
+		list = (T*) realloc(list, (listSize + 1) * (sizeof list[0]));
+		list[listSize] = el;
 		listSize = listSize + 1;
 	}
 
@@ -33,23 +31,19 @@ public:
 	}
 
 	void remove(int i){
-		if(i >= 0 && i < listSize && listSize > 1){
-			T* newList;
-			newList = (T*) realloc(list, (listSize - 1) * (sizeof newList[0]));
-			int j = 0;
-			int k = 0;
-			while(j < listSize-1){
-				if(k != i){
-					newList[j] = list[k];
-					j++;
-				}
-				k++;
-			}
-			list = newList;
-			listSize = listSize - 1;
-		} else if(listSize == 1){
+		if(listSize == 0 || i < 0 || i >= listSize)
+			return;
+		else if(listSize == 1){
+			delete &list[0];
 			list = NULL;
 			listSize = 0;
+		} else {
+			cout << "trap " << i;
+			for(int j = i; j < listSize-1; j++){
+				list[j] = list[j+1];
+			}
+			list = (T*) realloc(list, (listSize - 1) * (sizeof list[0]));
+			listSize = listSize - 1;
 		}
 	}
 
