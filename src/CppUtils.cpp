@@ -1,5 +1,6 @@
 #include <iostream>
 #include "ArrayList.cpp"
+#include "LinkedList.cpp"
 #include "Optional.cpp"
 using namespace std;
 
@@ -27,15 +28,35 @@ public:
 
 int main() {
 
-	List<Optional<int> > *list = new ArrayList<Optional<int> >();
+//	List<Optional<int> > *list = new ArrayList<Optional<int> >();
+	List<Optional<int> > *list = new LinkedList<Optional<int> >();
 	list->put(*new Optional<int>(1));
 	list->put(*new Optional<int>());
 	list->put(*new Optional<int>(3));
 	list->put(*new Optional<int>());
 	list->put(*new Optional<int>(5));
 	list->set(4, 9);
-	for(int i = 0; i < 5; i++)
-		cout << endl << list->get(i).get(6);
+	for(int i = 0; i < list->size(); i++){
+		Optional<int> opt = list->get(i);
+		cout << endl << "Value at " << i << " is ";
+		if(opt.isSet()){
+			cout << opt.get(-1);
+		} else {
+			cout << "not set (" << opt.get(-1) << ")";
+		}
+	}
+	cout << endl << "-------------------" << endl;
+	list->remove(2);
+	list->remove(6);
+	for(int i = 0; i < list->size(); i++){
+		Optional<int> opt = list->get(i);
+		cout << endl << "Value at " << i << " is ";
+		if(opt.isSet()){
+			cout << opt.get(-1);
+		} else {
+			cout << "not set (" << opt.get(-1) << ")";
+		}
+	}
 
 	return 0;
 }

@@ -1,3 +1,5 @@
+#ifndef __LIST_INTERFACE_INCLUDED__
+#define __LIST_INTERFACE_INCLUDED__
 
 template<class T> class List {
 public:
@@ -7,3 +9,5 @@ public:
 	virtual void set(int i, T el) = 0;
 	virtual int size() = 0;
 };
+
+#endif

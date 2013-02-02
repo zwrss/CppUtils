@@ -1,3 +1,6 @@
+#ifndef __OPTIONAL_CLASS_INCLUDED__
+#define __OPTIONAL_CLASS_INCLUDED__
+
 #include <iostream>
 using namespace std;
 
@@ -24,3 +27,5 @@ public:
 		return isset;
 	}
 };
+
+#endif

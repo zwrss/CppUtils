@@ -1,3 +1,6 @@
+#ifndef __ARRAY_LIST_INCLUDED__
+#define __ARRAY_LIST_INCLUDED__
+
 #include <iostream>
 #include <cstdlib>
 #include "List.cpp"
@@ -67,11 +70,6 @@ public:
 		}
 		return al;
 	}
-
-//	void test(){
-//		cout << endl << " --- test --- ";
-//		for(int i = 0; i < listSize; i++){
-//			cout << endl << i << "." << list[i];
-//		}
-//	}
 };
+
+#endif
