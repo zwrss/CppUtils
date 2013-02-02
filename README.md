@@ -12,5 +12,6 @@ Current utils:
 
     List interface
     ArrayList implementation
+    LinkedList implementation
     Optional implementation (no nulls anymore!)
 
