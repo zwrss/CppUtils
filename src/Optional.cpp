@@ -26,6 +26,16 @@ public:
 	bool isSet(){
 		return isset;
 	}
+
+	int operator==(Optional<T> &other){
+		if(!isSet() && !other.isSet()){
+			return 1;
+		} else if(isSet() && other.isSet() && x == other.get(NULL)){
+			return 1;
+		} else {
+			return 0;
+		}
+	}
 };
 
 #endif

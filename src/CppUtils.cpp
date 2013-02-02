@@ -31,12 +31,12 @@ int main() {
 	cout << endl << "--- Create and input test:" << endl;
 //	List<Optional<int> > *list = new ArrayList<Optional<int> >();
 	List<Optional<int> > *list = new LinkedList<Optional<int> >();
-	list->put(*new Optional<int>(1));
-	list->put(*new Optional<int>());
-	list->put(*new Optional<int>(3));
-	list->put(*new Optional<int>());
-	list->put(*new Optional<int>(5));
-	list->set(4, 9);
+	list->put(Optional<int>(1));
+	list->put(Optional<int>());
+	list->put(Optional<int>(3));
+	list->put(Optional<int>());
+	list->put(Optional<int>(5));
+	list->set(4, Optional<int>(9));
 	for(int i = 0; i < list->size(); i++){
 		Optional<int> opt = list->get(i);
 		cout << endl << "Value at " << i << " is ";
@@ -78,11 +78,11 @@ int main() {
 		}
 	}
 	cout << endl << "--- Reinput test:" << endl;
-	list->put(*new Optional<int>(1));
-	list->put(*new Optional<int>());
-	list->put(*new Optional<int>(3));
-	list->put(*new Optional<int>());
-	list->put(*new Optional<int>(5));
+	list->put(Optional<int>(1));
+	list->put(Optional<int>());
+	list->put(Optional<int>(3));
+	list->put(Optional<int>());
+	list->put(Optional<int>(5));
 	for(int i = 0; i < list->size(); i++){
 		Optional<int> opt = list->get(i);
 		cout << endl << "Value at " << i << " is ";
@@ -103,5 +103,18 @@ int main() {
 			cout << "not set (" << opt.get(-1) << ")";
 		}
 	}
+	cout << endl << "--- Contains test:" << endl;
+	if(list->contains(Optional<int>(1))){
+		cout << endl << "OK";
+	} else {
+		cout << endl << "ERROR! This DOES contain Optional(1)!";
+	}
+
+	if(!list->contains(Optional<int>(10))){
+		cout << endl << "OK";
+	} else {
+		cout << endl << "ERROR! This DOES NOT contain Optional(10)!";
+	}
+
 	return 0;
 }
