@@ -32,7 +32,7 @@ int main() {
 //	List<Optional<int> > *list = new ArrayList<Optional<int> >();
 	List<Optional<int> > *list = new LinkedList<Optional<int> >();
 	list->put(Optional<int>(1));
-	list->put(Optional<int>());
+	list->put(Optional<int>(NULL));
 	list->put(Optional<int>(3));
 	list->put(Optional<int>());
 	list->put(Optional<int>(5));

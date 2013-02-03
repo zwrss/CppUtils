@@ -13,7 +13,10 @@ public:
 		isset = false;
 	}
 	Optional(T x):x(x){
-		isset = true;
+		if(x == NULL)
+			isset = false;
+		else
+			isset = true;
 	}
 
 	T get(T e){
